@@ -1,0 +1,34 @@
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\bin\Debug\net6.0\ProductManagement.DataAccess.deps.json
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\bin\Debug\net6.0\ProductManagement.DataAccess.runtimeconfig.json
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\bin\Debug\net6.0\ProductManagement.DataAccess.dll
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\bin\Debug\net6.0\ProductManagement.DataAccess.pdb
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\bin\Debug\net6.0\ProductManagement.Models.dll
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\bin\Debug\net6.0\ProductManagement.Models.pdb
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.csproj.AssemblyReference.cache
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.AssemblyInfoInputs.cache
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.AssemblyInfo.cs
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.csproj.CoreCompileInputs.cache
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.csproj.CopyComplete
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.dll
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\obj\Debug\net6.0\refint\ProductManagement.DataAccess.dll
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.pdb
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.genruntimeconfig.cache
+G:\Programming Projects\C# source code\ProductManagement\DataAccess\obj\Debug\net6.0\ref\ProductManagement.DataAccess.dll
+G:\Programming Projects\C# source code\Product Management\DataAccess\bin\Debug\net6.0\ProductManagement.DataAccess.deps.json
+G:\Programming Projects\C# source code\Product Management\DataAccess\bin\Debug\net6.0\ProductManagement.DataAccess.runtimeconfig.json
+G:\Programming Projects\C# source code\Product Management\DataAccess\bin\Debug\net6.0\ProductManagement.DataAccess.dll
+G:\Programming Projects\C# source code\Product Management\DataAccess\bin\Debug\net6.0\ProductManagement.DataAccess.pdb
+G:\Programming Projects\C# source code\Product Management\DataAccess\bin\Debug\net6.0\ProductManagement.Models.dll
+G:\Programming Projects\C# source code\Product Management\DataAccess\bin\Debug\net6.0\ProductManagement.Models.pdb
+G:\Programming Projects\C# source code\Product Management\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.csproj.AssemblyReference.cache
+G:\Programming Projects\C# source code\Product Management\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+G:\Programming Projects\C# source code\Product Management\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.AssemblyInfoInputs.cache
+G:\Programming Projects\C# source code\Product Management\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.AssemblyInfo.cs
+G:\Programming Projects\C# source code\Product Management\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.csproj.CoreCompileInputs.cache
+G:\Programming Projects\C# source code\Product Management\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.csproj.CopyComplete
+G:\Programming Projects\C# source code\Product Management\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.dll
+G:\Programming Projects\C# source code\Product Management\DataAccess\obj\Debug\net6.0\refint\ProductManagement.DataAccess.dll
+G:\Programming Projects\C# source code\Product Management\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.pdb
+G:\Programming Projects\C# source code\Product Management\DataAccess\obj\Debug\net6.0\ProductManagement.DataAccess.genruntimeconfig.cache
+G:\Programming Projects\C# source code\Product Management\DataAccess\obj\Debug\net6.0\ref\ProductManagement.DataAccess.dll

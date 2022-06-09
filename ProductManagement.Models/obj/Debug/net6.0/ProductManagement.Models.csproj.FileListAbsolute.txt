@@ -1,0 +1,24 @@
+G:\Programming Projects\C# source code\ProductManagement\ProductManagement.Models\bin\Debug\net6.0\ProductManagement.Models.deps.json
+G:\Programming Projects\C# source code\ProductManagement\ProductManagement.Models\bin\Debug\net6.0\ProductManagement.Models.dll
+G:\Programming Projects\C# source code\ProductManagement\ProductManagement.Models\bin\Debug\net6.0\ProductManagement.Models.pdb
+G:\Programming Projects\C# source code\ProductManagement\ProductManagement.Models\obj\Debug\net6.0\ProductManagement.Models.csproj.AssemblyReference.cache
+G:\Programming Projects\C# source code\ProductManagement\ProductManagement.Models\obj\Debug\net6.0\ProductManagement.Models.GeneratedMSBuildEditorConfig.editorconfig
+G:\Programming Projects\C# source code\ProductManagement\ProductManagement.Models\obj\Debug\net6.0\ProductManagement.Models.AssemblyInfoInputs.cache
+G:\Programming Projects\C# source code\ProductManagement\ProductManagement.Models\obj\Debug\net6.0\ProductManagement.Models.AssemblyInfo.cs
+G:\Programming Projects\C# source code\ProductManagement\ProductManagement.Models\obj\Debug\net6.0\ProductManagement.Models.csproj.CoreCompileInputs.cache
+G:\Programming Projects\C# source code\ProductManagement\ProductManagement.Models\obj\Debug\net6.0\ProductManagement.Models.dll
+G:\Programming Projects\C# source code\ProductManagement\ProductManagement.Models\obj\Debug\net6.0\refint\ProductManagement.Models.dll
+G:\Programming Projects\C# source code\ProductManagement\ProductManagement.Models\obj\Debug\net6.0\ProductManagement.Models.pdb
+G:\Programming Projects\C# source code\ProductManagement\ProductManagement.Models\obj\Debug\net6.0\ref\ProductManagement.Models.dll
+G:\Programming Projects\C# source code\Product Management\ProductManagement.Models\bin\Debug\net6.0\ProductManagement.Models.deps.json
+G:\Programming Projects\C# source code\Product Management\ProductManagement.Models\bin\Debug\net6.0\ProductManagement.Models.dll
+G:\Programming Projects\C# source code\Product Management\ProductManagement.Models\bin\Debug\net6.0\ProductManagement.Models.pdb
+G:\Programming Projects\C# source code\Product Management\ProductManagement.Models\obj\Debug\net6.0\ProductManagement.Models.csproj.AssemblyReference.cache
+G:\Programming Projects\C# source code\Product Management\ProductManagement.Models\obj\Debug\net6.0\ProductManagement.Models.GeneratedMSBuildEditorConfig.editorconfig
+G:\Programming Projects\C# source code\Product Management\ProductManagement.Models\obj\Debug\net6.0\ProductManagement.Models.AssemblyInfoInputs.cache
+G:\Programming Projects\C# source code\Product Management\ProductManagement.Models\obj\Debug\net6.0\ProductManagement.Models.AssemblyInfo.cs
+G:\Programming Projects\C# source code\Product Management\ProductManagement.Models\obj\Debug\net6.0\ProductManagement.Models.csproj.CoreCompileInputs.cache
+G:\Programming Projects\C# source code\Product Management\ProductManagement.Models\obj\Debug\net6.0\ProductManagement.Models.dll
+G:\Programming Projects\C# source code\Product Management\ProductManagement.Models\obj\Debug\net6.0\refint\ProductManagement.Models.dll
+G:\Programming Projects\C# source code\Product Management\ProductManagement.Models\obj\Debug\net6.0\ProductManagement.Models.pdb
+G:\Programming Projects\C# source code\Product Management\ProductManagement.Models\obj\Debug\net6.0\ref\ProductManagement.Models.dll

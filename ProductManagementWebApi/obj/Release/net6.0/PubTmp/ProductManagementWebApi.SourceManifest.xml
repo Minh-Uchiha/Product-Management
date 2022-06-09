@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\obj\Release\net6.0\PubTmp\Out\" />
+  <dbfullsql path="G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\obj\Release\net6.0\PubTmp\EFSQLScripts\ProductManagement.DataAccess.Data.ApplicationDbContext.sql" />
+</sitemanifest>

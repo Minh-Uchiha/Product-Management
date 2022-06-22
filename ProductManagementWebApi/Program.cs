@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProductManagement.DataAccess.Data;
+using ProductManagement.Repository.IRepository;
+using ProductManagement.Repository.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")
     ));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 

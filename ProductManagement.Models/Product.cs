@@ -22,6 +22,7 @@ namespace ProductManagement.Models
         [NotMapped]
         public IFormFile? Image { get; set; }
         public string? ImageUrl { get; set; }
+        public bool IsActive { get; set; } = true;
         public int ProductTypeId { get; set; }
     }
 }

@@ -134,3 +134,8 @@ G:\Programming Projects\C# source code\Product Management\ProductManagementWebAp
 G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\System.IO.Hashing.dll
 G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\System.Memory.Data.dll
+G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\AutoMapper.dll
+G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\ProductManagement.Helpers.dll
+G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\ProductManagement.Repository.dll
+G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\ProductManagement.Repository.pdb
+G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\ProductManagement.Helpers.pdb

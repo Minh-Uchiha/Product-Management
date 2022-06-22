@@ -4,7 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductManagement.DataAccess.Data;
 using ProductManagement.Models;
-using ProductManagementWebApi.Helpers;
+using ProductManagement.Repository.IRepository;
+using ProductManagementWebApi.Helpers.Common;
+using ProductManagementWebApi.Helpers.Interfaces;
+using ProductManagementWebApi.Helpers.Request;
 
 namespace ProductManagement.Controllers
 {
@@ -12,26 +15,19 @@ namespace ProductManagement.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly ApplicationDbContext _db;
-        public UsersController(ApplicationDbContext db)
+        private readonly IUnitOfWork _unitOfWork;
+        public UsersController(IUnitOfWork unitOfWork)
         {
-            _db = db;
+            _unitOfWork = unitOfWork;
         }
 
         // Get simplified information of all users
+        // Supports paging, sorting, searching (By name, by status, etc)
         [HttpGet]
-        public async Task<IActionResult> GetAllUsers(int? PageSize, int? PageNumber)
+        public async Task<IActionResult> GetAllUsers([FromQuery] GetRequest req)
         {
-            var CurrPageSize = PageSize ?? 10;
-            var CurrPageNumber = PageNumber ?? 1;
-            var users = await (from user in _db.Users
-                               select new
-                               {
-                                   user.Id,
-                                   user.UserName,
-                                   Avatar = user.AvatarUrl
-                               }).ToListAsync();
-            return Ok(users.Skip(CurrPageSize * (CurrPageNumber - 1)).Take(CurrPageSize));
+            if (req == null) return BadRequest();
+            return Ok(_unitOfWork.User.GetAll(req));
         }
 
         // Sign in (Get detailed information about a user with a specific id)
@@ -39,57 +35,28 @@ namespace ProductManagement.Controllers
         public async Task<IActionResult> SignIn(int? Id)
         {
             if (Id == null) return BadRequest();
-            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == Id);
+            var user = _unitOfWork.User.GetFirstOrDefault(u => u.Id == Id);
             return Ok(user);
-        }
-
-        // Get the information of all the users in ascending order (by name)
-        [HttpGet("[action]")]
-        public async Task<IActionResult> GetSortedAscending()
-        {
-            var users = await (from user in _db.Users
-                               select new
-                               {
-                                   user.Id,
-                                   user.UserName,
-                                   Avatar = user.AvatarUrl
-                               }).OrderBy(u => u.UserName).ToListAsync();
-            return Ok(users);
-        }
-
-        // Get the information of all the users in descending order (by name)
-        [HttpGet("[action]")]
-        public async Task<IActionResult> GetSortedDescending()
-        {
-            var users = await (from user in _db.Users
-                               select new
-                               {
-                                   user.Id,
-                                   user.UserName,
-                                   Avatar = user.AvatarUrl
-                               }).OrderByDescending(u => u.UserName).ToListAsync();
-            return Ok(users);
         }
 
         // Sign Up (Create a new User)
         [HttpPost]
-        public async Task<IActionResult> SignUp([FromForm] User User)
+        public async Task<IActionResult> SignUp([FromForm] UserPostRequest userPostRequest)
         {
-            if (User == null) return BadRequest();
-            User.AvatarUrl = await FileHelper.UploadUserImage(User.Avatar);
-            await _db.Users.AddAsync(User);
-            await _db.SaveChangesAsync();
+            if (userPostRequest == null) return BadRequest();
+            await _unitOfWork.User.Add(userPostRequest);
+            await _unitOfWork.SaveAsync();
             return StatusCode(StatusCodes.Status201Created);
         }
 
-        // Update a user information given his/her id
+        // Update a user information 
         [HttpPut("{Id}")]
-        public async Task<IActionResult> Update(int? Id, [FromForm] User user)
+        public async Task<IActionResult> Update(int? Id, [FromForm] UserPostRequest userPostRequest)
         {
-            if (Id == null || user == null) return BadRequest();
-            user.Id = (int)Id;
-            _db.Users.Update(user);
-            await _db.SaveChangesAsync();
+            if (Id == null) return BadRequest();
+            if (userPostRequest == null) return BadRequest();
+            _unitOfWork.User.Update((int)Id, userPostRequest);
+            await _unitOfWork.SaveAsync();
             return StatusCode(StatusCodes.Status202Accepted);
         }
 
@@ -98,27 +65,11 @@ namespace ProductManagement.Controllers
         public async Task<IActionResult> Delete(int? Id)
         {
             if (Id == null) return BadRequest();
-            var User = await _db.Users.FirstOrDefaultAsync(u => u.Id == Id);
-            _db.Users.Remove(User);
-            await _db.SaveChangesAsync();
+            var User = _unitOfWork.User.GetFirstOrDefault(u => u.Id == Id);
+            if (User == null) return NotFound();
+            _unitOfWork.User.Remove(User);
+            _unitOfWork.SaveAsync();
             return StatusCode(StatusCodes.Status202Accepted);
-        }
-
-        // Get the users who are inactive
-        [HttpGet("[action]")]
-        public async Task<IActionResult> InActive()
-        {
-            var users = await _db.Users.Where(u => u.IsInActive == true).ToListAsync();
-            return Ok(users);
-        }
-
-        // Search for users whose names start with a given text
-        [HttpGet("[action]")]
-        public async Task<IActionResult> Search(string? query)
-        {
-            query = query ?? "";
-            var users = await _db.Users.Where(u => u.UserName.StartsWith(query)).ToListAsync();
-            return Ok(users);
         }
 
         // Forgot password request handler
@@ -128,22 +79,22 @@ namespace ProductManagement.Controllers
         public async Task<IActionResult> ForgotPassword(string? Email)
         {
             if (Email == null) return BadRequest();
-            bool EmailExisted = _db.Users.Any(u => u.Email == Email);
-            return Ok(EmailExisted);
+            User user = _unitOfWork.User.GetFirstOrDefault(u => u.Email == Email);
+            if (user == null) return NotFound();
+            // Send email to the user
+            return Ok();
         }
 
-        // Change password of a user knowing the his/her id
-        [HttpPut("[action]/{Id}")]
-        public async Task<IActionResult> ChangePassword(int? Id, string? NewPassword)
+        // Change password of a user given his/her email and a new password
+        [HttpPut("[action]")]
+        public async Task<IActionResult> ChangePassword(string Email, string NewPassword)
         {
-            if (NewPassword == null || Id == null) return BadRequest();
-            var user = _db.Users.FirstOrDefault(u => u.Id == Id);
+            if (Email == null || NewPassword == null) return BadRequest();
+            var user = _unitOfWork.User.GetFirstOrDefault(u => u.Email == Email);
             user.Password = NewPassword;
-            await _db.SaveChangesAsync();
+            _unitOfWork.SaveAsync();
             return StatusCode(StatusCodes.Status202Accepted);
         }
-
-
 
     }
 }

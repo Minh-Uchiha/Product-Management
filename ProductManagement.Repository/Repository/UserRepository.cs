@@ -90,9 +90,8 @@ namespace ProductManagement.Repository.Repository
         }
 
         // Update a user
-        public void Update(int id, UserPostRequest userPostRequest)
+        public void Update(User user, UserPostRequest userPostRequest)
         {
-            User user = GetFirstOrDefault(u => u.Id == id);
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<UserPostRequest, User>();

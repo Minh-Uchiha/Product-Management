@@ -76,9 +76,8 @@ namespace ProductManagement.Repository.Repository
 
         }
 
-        public void Update(int Id, ProductTypePostRequest entity)
+        public void Update(ProductType productType, ProductTypePostRequest entity)
         {
-            ProductType productType = GetFirstOrDefault(u => u.Id == Id);
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<ProductTypePostRequest, ProductType>();

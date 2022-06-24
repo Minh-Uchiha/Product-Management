@@ -12,7 +12,7 @@ namespace ProductManagement.Repository.IRepository
 {
     public interface IProductTypeRepository : IRepository<ProductType>
     {
-        void Update(int Id, ProductTypePostRequest entity);
+        void Update(ProductType productType, ProductTypePostRequest entity);
         IEnumerable<ProductTypeGetResponse> GetAll(GetRequest req);
         Task Add(ProductTypePostRequest entity);
         ProductType GetDetails(int Id);

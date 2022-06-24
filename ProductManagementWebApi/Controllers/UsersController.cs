@@ -55,7 +55,9 @@ namespace ProductManagement.Controllers
         {
             if (Id == null) return BadRequest();
             if (userPostRequest == null) return BadRequest();
-            _unitOfWork.User.Update((int)Id, userPostRequest);
+            User user = _unitOfWork.User.GetFirstOrDefault(u => u.Id == Id);
+            if (user == null) return NotFound();
+            _unitOfWork.User.Update(user, userPostRequest);
             await _unitOfWork.SaveAsync();
             return StatusCode(StatusCodes.Status202Accepted);
         }

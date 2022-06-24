@@ -14,7 +14,7 @@ namespace ProductManagement.Repository.IRepository
     public interface IUserRepository : IRepository<User>
     {
         public IEnumerable<UserGetResponse> GetAll(GetRequest req);
-        void Update(int Id, UserPostRequest userPostRequest);
+        void Update(User user, UserPostRequest userPostRequest);
         Task Add(UserPostRequest entity);
     }
 }

@@ -51,7 +51,9 @@ namespace ProductManagement.Controllers
         public async Task<IActionResult> UpdateProductById(int? Id, [FromForm] ProductPostRequest productPostRequest)
         {
             if (Id == null || productPostRequest == null) return BadRequest();
-            _unitOfWork.Product.Update((int)Id, productPostRequest);
+            Product product = _unitOfWork.Product.GetFirstOrDefault(p => p.Id == Id);
+            if (product == null) return NotFound();
+            _unitOfWork.Product.Update(product, productPostRequest);
             await _unitOfWork.SaveAsync();
             return StatusCode(StatusCodes.Status202Accepted);
         }
@@ -62,6 +64,7 @@ namespace ProductManagement.Controllers
         {
             if (Id == null) return BadRequest();
             Product product = _unitOfWork.Product.GetFirstOrDefault(p => p.Id == Id);
+            if (product == null) return NotFound();
             _unitOfWork.Product.Remove(product);
             await _unitOfWork.SaveAsync();
             return StatusCode(StatusCodes.Status200OK);

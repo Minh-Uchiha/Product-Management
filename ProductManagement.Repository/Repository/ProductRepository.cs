@@ -54,7 +54,7 @@ namespace ProductManagement.Repository.Repository
                             product.Price,
                             product.Size,
                             product.ImageUrl,
-                            product.IsActive)).ToList();
+                            product.IsActive)).Where(p => p.IsActive == true).ToList();
             if (req.SearchReq != null)
             {
                 // Filter the list by some search params

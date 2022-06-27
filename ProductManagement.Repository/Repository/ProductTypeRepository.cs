@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ClosedXML.Excel;
 using Microsoft.EntityFrameworkCore;
 using ProductManagement.DataAccess.Data;
 using ProductManagement.Helpers.Helpers.Request;
@@ -74,6 +75,33 @@ namespace ProductManagement.Repository.Repository
             }
             return productTypes.Skip(CurrPageSize * (CurrPageNumber - 1)).Take(CurrPageSize).ToList();
 
+        }
+
+        // Export data to Excel file
+        public byte[] CSV()
+        {
+            var productTypes = (from productType in _db.ProductTypes
+                                select new ProductTypeGetResponse(productType.Id, productType.Name)).ToList();
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Product Types");
+                var currRow = 1;
+                worksheet.Cell(currRow, 1).Value = "Id";
+                worksheet.Cell(currRow, 2).Value = "Name";
+
+                foreach (var productType in productTypes)
+                {
+                    worksheet.Cell(currRow, 1).Value = productType.Id;
+                    worksheet.Cell(currRow, 2).Value = productType.Name;
+                }
+
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+                    return content;
+                }
+            }
         }
 
         public void Update(ProductType productType, ProductTypePostRequest entity)

@@ -16,5 +16,6 @@ namespace ProductManagement.Repository.IRepository
         IEnumerable<ProductTypeGetResponse> GetAll(GetRequest req);
         Task Add(ProductTypePostRequest entity);
         ProductType GetDetails(int Id);
+        byte[] CSV();
     }
 }

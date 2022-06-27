@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using ClosedXML.Excel;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using ProductManagement.DataAccess.Data;
 using ProductManagement.Helpers.Helpers.Request;
@@ -79,6 +81,48 @@ namespace ProductManagement.Repository.Repository
                 }
             }
             return products.Skip(CurrPageSize * (CurrPageNumber - 1)).Take(CurrPageSize).ToList();
+
+        }
+
+        // Export data to CSV files
+        public byte[] CSV()
+        {
+            var products = (from product in _db.Products
+                            select new ProductGetResponse(
+                            product.Id,
+                            product.Name,
+                            product.Price,
+                            product.Size,
+                            product.ImageUrl,
+                            product.IsActive)).ToList();
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Products");
+                var currentRow = 1;
+                worksheet.Cell(currentRow, 1).Value = "Id";
+                worksheet.Cell(currentRow, 2).Value = "Name";
+                worksheet.Cell(currentRow, 3).Value = "Price";
+                worksheet.Cell(currentRow, 4).Value = "Size";
+                worksheet.Cell(currentRow, 5).Value = "ImageUrl";
+                worksheet.Cell(currentRow, 6).Value = "IsActive";
+                foreach (var product in products)
+                {
+                    currentRow ++;
+                    worksheet.Cell(currentRow, 1).Value = product.Id;
+                    worksheet.Cell(currentRow, 2).Value = product.Name;
+                    worksheet.Cell(currentRow, 3).Value = product.Price;
+                    worksheet.Cell(currentRow, 4).Value = product.Size;
+                    worksheet.Cell(currentRow, 5).Value = product.ImageUrl;
+                    worksheet.Cell(currentRow, 6).Value = product.IsActive;
+                }
+
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+                    return content;
+                }
+            }
 
         }
 

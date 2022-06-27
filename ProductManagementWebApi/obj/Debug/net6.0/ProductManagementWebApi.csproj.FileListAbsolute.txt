@@ -139,3 +139,10 @@ G:\Programming Projects\C# source code\Product Management\ProductManagementWebAp
 G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\ProductManagement.Repository.dll
 G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\ProductManagement.Repository.pdb
 G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\ProductManagement.Helpers.pdb
+G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\ClosedXML.dll
+G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\ExcelNumberFormat.dll
+G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\Newtonsoft.Json.dll
+G:\Programming Projects\C# source code\Product Management\ProductManagementWebApi\bin\Debug\net6.0\System.IO.Packaging.dll

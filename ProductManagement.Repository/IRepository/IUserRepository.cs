@@ -16,5 +16,6 @@ namespace ProductManagement.Repository.IRepository
         public IEnumerable<UserGetResponse> GetAll(GetRequest req);
         void Update(User user, UserPostRequest userPostRequest);
         Task Add(UserPostRequest entity);
+        byte[] CSV();
     }
 }

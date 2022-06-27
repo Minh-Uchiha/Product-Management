@@ -67,5 +67,12 @@ namespace ProductManagement.Controllers
             return StatusCode(StatusCodes.Status200OK);
         }
 
+        // Export data to Excel File
+        [HttpGet("[action]")]
+        public async Task<IActionResult> ExportToExcelFile()
+        {
+            return File(_unitOfWork.ProductType.CSV(), "application/octet-stream", "ProductTypes.csv");
+        }
+
     }
 }

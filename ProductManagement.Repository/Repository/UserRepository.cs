@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ClosedXML.Excel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -87,6 +88,35 @@ namespace ProductManagement.Repository.Repository
             }
             return users.Skip(CurrPageSize * (CurrPageNumber - 1)).Take(CurrPageSize).ToList();
      
+        }
+
+        // Export data to excel file
+        public byte[] CSV()
+        {
+            var users = (from user in _db.Users
+                         select new UserGetResponse( user.Id, user.UserName, user.AvatarUrl, (bool)user.IsInActive)).ToList();
+            using (var workbook = new XLWorkbook())
+            {
+                var currRow = 1;
+                var worksheet = workbook.Worksheets.Add("Users");
+                worksheet.Cell(currRow, 1).Value = "Id";
+                worksheet.Cell(currRow, 2).Value = "UserName";
+                worksheet.Cell(currRow, 3).Value = "AvatarUrl";
+                foreach (var user in users)
+                {
+                    currRow ++;
+                    worksheet.Cell(currRow, 1).Value = user.Id;
+                    worksheet.Cell(currRow, 2).Value = user.UserName;
+                    worksheet.Cell(currRow, 3).Value = user.Avatar;
+                }
+
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+                    return content;
+                }
+            }
         }
 
         // Update a user

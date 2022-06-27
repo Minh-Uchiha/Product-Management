@@ -1,4 +1,5 @@
-﻿using ProductManagement.Helpers.Helpers.Request;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProductManagement.Helpers.Helpers.Request;
 using ProductManagement.Helpers.Helpers.Response;
 using ProductManagement.Models;
 using ProductManagementWebApi.Helpers.Request;
@@ -15,6 +16,7 @@ namespace ProductManagement.Repository.IRepository
     {
         void Update(Product product, ProductPostRequest productPostRequest);
         IEnumerable<ProductGetResponse> GetAll(GetRequest req);
+        byte[] CSV();
         Task Add(ProductPostRequest entity);
     }
 }
